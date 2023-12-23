@@ -1,0 +1,91 @@
+@import "../../../styles/colors.scss";
+
+.categories-container {
+    background-color: white;
+    height: 100%;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $header-color;
+        height: 35px;
+        padding: 0 10px;
+
+        label {
+            color: white;
+        }
+
+        img {
+            width: 15px;
+            height: 15px;
+            background-color: $second-color;
+            border-radius: 50%;
+            padding: 4px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $active-color;
+            }
+        }
+    }
+
+    .body {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .icon-container {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+
+            button{
+                padding: 15px;
+                background-image: linear-gradient(white, #f5f5f5);
+                border: 1px solid #e1e1e1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                height: 20px;
+
+                img {
+                    width: 16px;
+                    cursor: pointer;
+                }
+                .plus-minus{
+                    width: 14px;
+                    border: 1px solid #157fcc;
+                }
+            }
+
+        }
+
+        .plus-minus {
+            background-color: #e0e2e6;
+            width: 15px;
+            padding: 2px;
+        }
+    }
+
+    // -------------------------------------material design--------------------------------
+    .mat-tree-node {
+        cursor: pointer;
+        min-height: 30px;
+    }
+
+    .mat-icon-button{
+        height: 35px;
+        width: 35px;
+        line-height: 0;
+        
+    }
+
+
+}
+
+.type-icon {
+    color: #afafaf;
+}

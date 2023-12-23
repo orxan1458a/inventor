@@ -1,0 +1,51 @@
+<div class="categories-container">
+    <div class="header">
+        <label>Categories</label>
+        <img src="../../../assets/icons/back_arrow_white.png" alt="">
+    </div>
+
+    <div class="body">
+        <div class="icon-container">
+            <button>
+                <img src="./../../../assets/icons/plus_blue.svg" alt="" class="plus-minus">
+            </button>
+            <button>
+                <img src="./../../../assets/icons/minus_blue.svg" alt="" class="plus-minus">
+            </button>
+            <button>
+                <img src="./../../../assets/icons/refresh_gray.png" alt="">
+            </button>
+            <button>
+                <img src="./../../../assets/icons/add_folder.png" alt="">
+            </button>
+            <button>
+                <img src="./../../../assets/icons/minus_blue.svg" alt="" class="plus-minus">
+            </button>
+            <button>
+                <img src="./../../../assets/icons/refresh_gray.png" alt="">
+            </button>
+        </div>
+
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <!-- This is the tree node template for leaf nodes -->
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                <!-- use a disabled button to provide padding for tree leaf -->
+                <button mat-icon-button disabled></button>
+                {{node.name}}
+            </mat-tree-node>
+            <!-- This is the tree node template for expandable nodes -->
+            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding matTreeNodeToggle>
+                <button mat-icon-button [attr.aria-label]="'Toggle ' + node.name">
+                    <img class="plus-minus"
+                        [src]="treeControl.isExpanded(node) ? '../../../assets/icons/minus_gray.svg' : '../../../assets/icons/plus_gray.svg'"
+                        alt="">
+                </button>
+                <mat-icon class="type-icon" [attr.aria-label]="node.type + 'icon'">
+                    {{ node.type ==='file' ? 'description' : 'folder' }}
+                </mat-icon>
+                {{node.name}}
+            </mat-tree-node>
+        </mat-tree>
+    </div>
+
+</div>

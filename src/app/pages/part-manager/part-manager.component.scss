@@ -1,0 +1,51 @@
+@import "../../../styles/colors.scss";
+
+.part-manager-container{
+    padding:5px;
+    background-color: #dbdbdb;
+    height: calc(100% - 10px);
+    display: grid;
+    grid-template-columns: 400px 2fr 1fr;
+    grid-template-rows: calc(100% - 10px);
+    gap: 5px;
+    background-color: green;
+
+
+    .parts-container {
+        background-color: brown;
+        height: 100%;
+    
+        .header {
+            display: flex;
+            align-items: center;
+            height: 35px;
+            background-color: $header-color;
+            padding: 0 5px;
+            color: white;
+            gap: 2px;
+    
+            div {
+                display: flex;
+                align-items: center;
+                background-color: $second-color;
+                height: 100%;
+                padding: 0 10px;
+                border-radius: 4px 4px 0 0;
+                cursor: pointer;
+    
+                label {
+                    cursor: pointer;
+                }
+            }
+    
+            .active-router-style {
+                background-color: $active-color;
+                color: $header-color;
+            }
+        }
+
+        .router-container{
+            height: calc(100% - 45px);
+        }
+    }
+}
