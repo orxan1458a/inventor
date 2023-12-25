@@ -18,6 +18,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTabsModule} from '@angular/material/tabs';
+import { PicturesComponent } from './pages/pictures/pictures.component';
 
 
 
@@ -29,6 +30,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     PartsComponent,
     PartInformationComponent,
     PartManagerComponent,
+    PicturesComponent,
   ],
   imports: [
     BrowserModule,

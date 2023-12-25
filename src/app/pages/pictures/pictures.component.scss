@@ -1,0 +1,32 @@
+.pictures-container {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 120px);
+        grid-template-rows: 120px;
+        margin: 10px;
+        gap: 10px;
+        
+        .card{
+            height: 100%;
+            width: 100%;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            
+            img {
+                width: 100px;
+            }
+            &:active{
+                border: 1px dotted black;
+            }
+        }
+    }
+}

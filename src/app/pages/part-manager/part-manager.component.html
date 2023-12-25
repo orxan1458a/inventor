@@ -1,19 +1,22 @@
-<div class="part-manager-container">
-    <app-categories></app-categories>
+<section class="part-manager-container">
+    <div class="container">
 
-    <div class="parts-container">
-        <div class="header">
-            <div routerLink="parts" routerLinkActive="active-router-style">
-                <label >Part list</label>
-            </div>
-            <div routerLink="pictures" routerLinkActive="active-router-style">
-                <label>Thumbnail views</label>
-            </div>
-        </div>
-        <!-- <div class="router-container">
-            <router-outlet></router-outlet>
-        </div> -->
+        <app-categories></app-categories>
+
+        <mat-tab-group>
+            <mat-tab label="Pictures">
+                <div class="component-con">
+                    <app-pictures></app-pictures>
+                </div>
+            </mat-tab>
+            <mat-tab label="Part Lists">
+                <div class="component-con">
+                    <app-parts></app-parts>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+
+        <app-part-information></app-part-information>
     </div>
-    
-    <app-part-information></app-part-information>
-</div>
+
+</section>

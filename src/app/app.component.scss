@@ -11,83 +11,24 @@
         height: 40px;
     }
 
-    .body-container{
+    .body-container {
         display: flex;
         flex-direction: column;
-
         gap: 5px;
         height: 100%;
-        background-color: green;
+        width: 100%;
+        
 
         .group-container {
             display: flex;
             gap: 2px;
             align-items: center;
             // background-color: $header-color;
-            background-color: RED;
 
             height: 100%;
             align-items: start;
 
-
-            div {
-                display: flex;
-                align-items: center;
-                background-color: $second-color;
-                padding: 10px;
-                gap: 5px;
-                border-radius: 4px 4px 0 0;
-                cursor: pointer;
-
-                label {
-                    color: white;
-                    cursor: pointer;
-                }
-
-                img {
-                    height: 20px;
-                }
-            }
-
-            .active-router-style {
-                background-color: $active-color;
-
-                label {
-                    color: $header-color;
-                }
-            }
         }
-
-        .router-body {
-            height: 100%;
-        }
-    }
-
-    .app-categories {
-        background-color: green;
-    }
-   
-    .mat-tab-group {
-        height: 100%;
-        width: 100%;
-
-        .mat-tab-header-pagination{
-            display: none !important;
-        }
-
-        .mat-tab-body-wrapper {
-            height: 100%;
-            align-items: start !important;
-        }
-    }
-    .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-        background-color: #eeffc4;
-    }
-
-    .group-container div {       
-         padding:0 !important;
-         display: none;
-
     }
 
 }
