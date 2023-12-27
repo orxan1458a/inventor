@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionService } from 'src/app/core/services/action/action.service';
 
 @Component({
   selector: 'app-part-manager',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartManagerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+   
   }
 
 }

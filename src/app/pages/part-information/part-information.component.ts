@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./part-information.component.scss']
 })
 export class PartInformationComponent implements OnInit {
+  isHidden=false;
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }
 
+  resize(){
+    this.isHidden=!this.isHidden;
+  }
 }

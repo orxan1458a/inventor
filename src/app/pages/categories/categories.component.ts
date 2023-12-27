@@ -67,6 +67,8 @@ interface ExampleFlatNode {
   encapsulation:ViewEncapsulation.None
 })
 export class CategoriesComponent implements OnInit {
+  isHidden=false;
+
   private _transformer = (node: FoodNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
@@ -94,6 +96,11 @@ export class CategoriesComponent implements OnInit {
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
   
   ngOnInit(): void {
+  }
+
+  resize(){
+    console.log(this.isHidden)
+    this.isHidden=!this.isHidden;
   }
 
 }

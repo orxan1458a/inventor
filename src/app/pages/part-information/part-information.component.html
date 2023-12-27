@@ -1,7 +1,7 @@
-<section class="part-information-container">
+<section class="part-information-container" [ngClass]="isHidden?'isHidden':''">
     <div class="header">
         <label>Part information</label>
-        <img src="../../../assets/icons/back_arrow_white.png" alt="">
+        <img src="../../../assets/icons/back_arrow_white.png" alt="" (click)="resize()">
     </div>
     <p>part-information works!</p>
 </section>

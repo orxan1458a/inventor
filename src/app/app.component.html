@@ -7,31 +7,27 @@
 
     <div class="group-container">
       <mat-tab-group>
-        <mat-tab label="Part Manager">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <img src="../assets/icons/box.png">
+            <span>Part Manager</span>
+          </ng-template>
           <app-part-manager></app-part-manager>
         </mat-tab>
-        <mat-tab label="User"> Content 2 </mat-tab>
-        <mat-tab label="Setting"> Content 3 </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <img src="../assets/icons/box.png">
+            <span>User</span>
+          </ng-template>
+        </mat-tab>
+
+        <mat-tab> <ng-template mat-tab-label>
+            <img src="../assets/icons/box.png">
+            <span>Settings</span>
+          </ng-template></mat-tab>
       </mat-tab-group>
 
 
-      <!-- <div routerLinkActive="active-router-style" routerLink="part_manager">
-        <img src="../assets/icons/box.png" alt="">
-        <label>Part Manager</label>
-      </div>
-      <div routerLinkActive="active-router-style" routerLink="user">
-        <img src="../assets/icons/box.png" alt="">
-        <label>User</label>
-      </div>
-      <div routerLinkActive="active-router-style" routerLink="edit">
-        <img src="../assets/icons/box.png" alt="">
-        <label>Setting</label>
-      </div>
-     </div> -->
-
-
-      <!-- <div class="router-body">
-      <router-outlet></router-outlet>
-    </div> -->
     </div>
   </div>

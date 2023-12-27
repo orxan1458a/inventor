@@ -1,7 +1,7 @@
-<div class="categories-container">
+<div class="categories-container" [ngClass]="isHidden?'isCategoriesContainerHidden':''">
     <div class="header">
         <label>Categories</label>
-        <img src="../../../assets/icons/back_arrow_white.png" alt="">
+        <img src="../../../assets/icons/back_arrow_white.png" alt=""  (click)="resize()">
     </div>
 
     <div class="body">
