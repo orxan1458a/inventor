@@ -35,6 +35,15 @@
         }
     }
 
+    .body{
+        height: calc(100% - 35px);
+
+        .part-info-container{
+            background-color: white;
+            height: 100%;
+        }
+    }
+
 }
 
 .isHidden {

@@ -5,6 +5,7 @@
     height: 100%;
     width: 300px;
     transition: width 0.2s ease-in;
+    position: relative;
 
 
     .header {
@@ -41,6 +42,7 @@
         flex-direction: column;
         gap: 10px;
 
+
         .icon-container {
             display: flex;
             gap: 5px;
@@ -75,9 +77,10 @@
             height: 15px;
             padding: 2px;
         }
+
     }
 
-
+   
 
     // -------------------------------------material design--------------------------------
     .mat-tree-node {

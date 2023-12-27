@@ -3,5 +3,25 @@
         <label>Part information</label>
         <img src="../../../assets/icons/back_arrow_white.png" alt="" (click)="resize()">
     </div>
-    <p>part-information works!</p>
+    <div class="body">
+        <mat-tab-group>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <img src="../assets/icons/box.png">
+                    <span>Part Details</span>
+                </ng-template>
+                <section class="part-info-container">asdadasd</section>
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <img src="../assets/icons/box.png">
+                    <span>Stock History</span>
+                </ng-template>
+                <section>asdadasd</section>
+
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
 </section>
