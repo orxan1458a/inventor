@@ -22,11 +22,10 @@
         .group-container {
             display: flex;
             gap: 2px;
-            align-items: center;
             // background-color: $header-color;
 
             height: 100%;
-            align-items: start;
+            align-items: flex-start;
 
         }
     }

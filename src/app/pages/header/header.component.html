@@ -1,17 +1,22 @@
 <div class="header-container">
-    <div class="left-con">
-        <div>
+    <div class="left-con" cdkMenuBar>
+        <div cdkMenuItem  [cdkMenuTriggerFor]="systemMenu">
             <label>System</label>
             <img src="../../../assets/icons/drop_down_gray.png" alt="">
         </div>
-        <div>
+        <div cdkMenuItem [cdkMenuTriggerFor]="editMenu">
             <label>Edit</label>
             <img src="../../../assets/icons/drop_down_gray.png" alt="">
         </div>
-        <div>
+        <div cdkMenuItem [cdkMenuTriggerFor]="editMenu">
             <label>View</label>
             <img src="../../../assets/icons/drop_down_gray.png" alt="">
         </div>
+        <div cdkMenuItem [cdkMenuTriggerFor]="editMenu">
+            <label>Theme</label>
+            <img src="../../../assets/icons/drop_down_gray.png" alt="">
+        </div>
+
     </div>
     <div class="right-con">
         <label>header works!</label>
@@ -20,3 +25,50 @@
     </div>
 
 </div>
+
+<ng-template #systemMenu>
+    <div class="cdk-menu" cdkMenu>
+        <button class="example-menu-item" cdkMenuItem>
+            <img src="../../../assets/icons/box.png" alt="">
+            <span>
+                User Preference
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <img src="../../../assets/icons/box.png" alt="">
+            <span>
+                System Preference
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <img src="https://cdn2.iconfinder.com/data/icons/flat-database/512/disconnect-512.png" alt="">
+            <span>
+                Disconnect
+            </span>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #editMenu>
+    <div class="cdk-menu" cdkMenu>
+        <button class="example-menu-item" cdkMenuItem>
+            <img src="../../../assets/icons/box.png" alt="">
+            <span>
+                User Preference1
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <img src="../../../assets/icons/box.png" alt="">
+            <span>
+                System Preference
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <img src="https://cdn2.iconfinder.com/data/icons/flat-database/512/disconnect-512.png" alt="">
+            <span>
+                Disconnect
+            </span>
+        </button>
+    </div>
+</ng-template>
+

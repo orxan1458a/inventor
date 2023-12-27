@@ -21,53 +21,99 @@ body {
 }
 
 // tab group
-.mat-tab-group {
+.mat-mdc-tab-group {
     width: 100%;
     height: 100%;
 
-    .mat-tab-header {
-        width: calc(100% - 5px);
-        background-color: $header-color;
-        padding: 5px 0 0 5px;
+    .mat-mdc-tab-header {
 
-        .mat-tab-labels {
+        .mat-mdc-tab-labels {
+
             gap: 5px;
+            height: 30px;
+            background-color: $header-color;
+            padding: 5px 5px 0 5px;
 
-            .mat-tab-label {
-                background-color: $second-color;
-                border-radius: 4px 4px 0 0;
-                height: 30px;
+            .mat-mdc-tab {
+                max-width: 170px;
                 padding: 0;
-                min-width: auto;
-                padding: 0 24px;
-                opacity: 1;
+                height: 30px;
+                background-color: $second-color;
 
-                .mat-tab-label-content {
+                span {
+                    color: white;
+                }
+
+                img {
+                    width: 20px;
+                }
+
+                .mdc-tab-indicator__content--underline {
+                    border-radius: 4px 4px 0 0;
+                    background-color: $active-color;
+                    color: $header-color;
+                    border: none;
+                    height: 100%;
+                }
+
+                .mdc-tab__text-label {
                     gap: 5px;
-                    
-                    img {
-                        width: 25px;
-                    }
-                    span{
-                        z-index: 2;
-                        color: red;
-                    }
                 }
             }
         }
-
-        .mat-ink-bar {
-            background-color: $active-color !important;
-            height: 100%;
-            border-radius: 4px;
-            z-index: 0;
-            width: auto;
-        }
     }
 
-    .mat-tab-body-wrapper {
+    .mat-mdc-tab-body-wrapper {
         height: 100%;
-        background-color: $active-color;
-        padding: 5px 0 0 0;
+    }
+}
+
+// menu
+
+.mat-mdc-menu-content {
+    padding: 0 !important;
+
+    .mat-mdc-menu-item {
+        min-height: 35px;
+
+        .mdc-list-item__primary-text {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+
+            img {
+                width: 20px;
+            }
+        }
+    }
+}
+
+.cdk-menu{
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    button{
+        border: none;
+        outline: none;
+        background-color: white;
+        padding: 5px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $active-color;
+        }
+
+        img{
+            width: 20px;
+            height: 20px;
+        }
     }
 }

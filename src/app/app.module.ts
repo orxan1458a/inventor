@@ -19,6 +19,7 @@ import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTabsModule} from '@angular/material/tabs';
 import { PicturesComponent } from './pages/pictures/pictures.component';
+import {CdkMenuModule} from '@angular/cdk/menu';
 
 
 
@@ -44,7 +45,8 @@ import { PicturesComponent } from './pages/pictures/pictures.component';
     MatPaginatorModule,
     MatTableModule,
     HttpClientModule,
-    MatTabsModule
+    MatTabsModule,
+    CdkMenuModule
   ],
   exports:[RouterModule],
   providers: [],
