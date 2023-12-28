@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTabsModule} from '@angular/material/tabs';
 import { PicturesComponent } from './pages/pictures/pictures.component';
 import {CdkMenuModule} from '@angular/cdk/menu';
+import { ButtonComponent } from './shared/button/button.component';
 
 
 
@@ -32,6 +33,7 @@ import {CdkMenuModule} from '@angular/cdk/menu';
     PartInformationComponent,
     PartManagerComponent,
     PicturesComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
