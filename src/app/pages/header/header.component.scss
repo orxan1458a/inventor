@@ -1,3 +1,5 @@
+@import '../../../styles/colors.scss';
+
 .header-container {
     height: 100%;
     display: flex;
@@ -28,5 +30,30 @@
     .right-con {
         display: flex;
         gap: 5px;
+    }
+}
+
+.cdk-menu {
+    background-color: red !important;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    button {
+        border: none;
+        outline: none;
+        background-color: white;
+        padding: 5px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $active-color;
+        }
     }
 }

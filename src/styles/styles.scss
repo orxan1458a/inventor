@@ -52,10 +52,6 @@ html {
                 height: 30px;
                 background-color: $second-color;
 
-                span {
-                    color: white;
-                }
-
                 img {
                     width: 20px;
                 }
@@ -66,14 +62,33 @@ html {
                     color: $header-color;
                     border: none;
                     height: 100%;
+
                 }
 
                 .mdc-tab__text-label {
                     gap: 5px;
+                    color: white;
+                    font: bold 16px/16px helvetica, arial, verdana, sans-serif !important;
+                }
+
+                .material-symbols-outlined {
+                    color: white;
+                }
+
+            }
+
+            .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label,
+            .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+                color: $header-color !important;
+
+                .material-symbols-outlined {
+                    color: $header-color;
                 }
             }
+
         }
     }
+
 
     .mat-mdc-tab-body-wrapper {
         height: calc(100% - 35px);
@@ -87,7 +102,7 @@ html {
     }
 }
 
-// menu
+// ---------------------menu
 
 .mat-mdc-menu-content {
     padding: 0 !important;
@@ -107,32 +122,63 @@ html {
     }
 }
 
-.cdk-menu {
-    background-color: red;
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    height: auto;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+// --------------loading gif
+.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: $header-color !important;
+}
 
-    button {
-        border: none;
-        outline: none;
-        background-color: white;
-        padding: 5px 15px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 5px;
+//---------------mat table
+.mat-mdc-table {
+
+    .mdc-data-table__header-row {
+        height: 40px;
+    }
+
+    .mdc-data-table__row {
+        height: 40px;
         cursor: pointer;
 
-        &:hover {
+        &:nth-child(odd){
+            background-color: #f5f5f5;
+        }
+    }
+
+    .mat-mdc-row:hover {
+        background-color: #f5f5f5 !important;
+    }
+}
+
+// -------------------------------------mat tree--------------------------------
+.mat-tree {
+    width: 100%;
+
+    .mat-tree-node {
+        cursor: pointer;
+        min-height: 30px;
+        height: 45px;
+
+        &:active {
             background-color: $active-color;
         }
 
-        img {
-            width: 20px;
-            height: 20px;
-        }
     }
+
+    .mat-icon-button {
+        height: 35px;
+        width: 35px;
+        line-height: 0;
+    }
+
+    .mat-mdc-icon-button.mat-mdc-button-base {
+        width: 30px;
+        height: 30px;
+        padding: 6px;
+    }
+}
+
+
+// ---------------- google icon color
+.material-symbols-outlined {
+    color: #5f6368;
+    font-size: 20px;
 }

@@ -1,9 +1,27 @@
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatSort, MatSortModule, SortDirection } from '@angular/material/sort';
-import { merge, Observable, of as observableOf } from 'rxjs';
-import { catchError, map, startWith, switchMap } from 'rxjs/operators';
+import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+const ELEMENT_DATA: PeriodicElement[] = [
+  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
+  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
+  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
+  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
+  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+];
 
 @Component({
   selector: 'app-parts',
@@ -12,81 +30,48 @@ import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 })
 
-export class PartsComponent implements AfterViewInit {
-
-
-  displayedColumns: string[] = ['created', 'state', 'number', 'title'];
-
-  //@ts-ignore
-  exampleDatabase: ExampleHttpDatabase | null;
-  data: GithubIssue[] = []
-  resultsLength = 0;
-  isLoadingResults = true;
-  isRateLimitReached = false;
-  //@ts-ignore
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+export class PartsComponent implements AfterViewInit{
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  matMenuList:string[]= ['position', 'name', 'weight', 'symbol'];
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
   //@ts-ignore
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(
+    private _httpClient: HttpClient,
+    private _liveAnnouncer: LiveAnnouncer
+  ) { }
 
   ngAfterViewInit() {
-    this.exampleDatabase = new ExampleHttpDatabase(this._httpClient);
-    // If the user changes the sort order, reset back to the first page.
-    this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
+    this.dataSource.sort = this.sort;
+  }
 
-    merge(this.sort.sortChange, this.paginator.page)
-      .pipe(
-        startWith({}),
-        switchMap(() => {
-          this.isLoadingResults = true;
-          return this.exampleDatabase!.getRepoIssues(
-            this.sort.active,
-            this.sort.direction,
-            this.paginator.pageIndex,
-          ).pipe(catchError(() => observableOf(null)));
-        }),
-        map(data => {
-          // Flip flag to show that loading has finished.
-          this.isLoadingResults = false;
-          this.isRateLimitReached = data === null;
+  announceSortChange(sortState: Sort) {
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
+  }
 
-          if (data === null) {
-            return [];
-          }
+  zzz(){
+    console.log(23)
+  }
 
-          // Only refresh the result length if there is new data. In case of rate
-          // limit errors, we do not want to reset the paginator to zero, as that
-          // would prevent users from re-triggering requests.
-          this.resultsLength = data.total_count;
-          return data.items;
-        }),
-      )
-      .subscribe(data => (this.data = data));
+  columnCustomize(event:any,columnName :string){
+    event.stopPropagation()
+    if(!this.displayedColumns.includes(columnName)){
+      this.displayedColumns.push(columnName);
+      console.log(2)
+    }
+    else{
+      const index = this.displayedColumns.indexOf(columnName);
+      this.displayedColumns.splice(index,1)
+    }
   }
 }
 
-export interface GithubApi {
-  items: GithubIssue[];
-  total_count: number;
-}
-
-export interface GithubIssue {
-  created_at: string;
-  number: string;
-  state: string;
-  title: string;
-}
-
-/** An example database that the data source uses to retrieve data for the table. */
-export class ExampleHttpDatabase {
-  constructor(private _httpClient: HttpClient) { }
-
-  getRepoIssues(sort: string, order: SortDirection, page: number): Observable<GithubApi> {
-    const href = 'https://api.github.com/search/issues';
-    const requestUrl = `${href}?q=repo:angular/components&sort=${sort}&order=${order}&page=${page + 1
-      }`;
-
-    return this._httpClient.get<GithubApi>(requestUrl);
-  }
-}

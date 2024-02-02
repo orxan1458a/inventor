@@ -25,27 +25,69 @@
                 <img src="./../../../assets/icons/refresh_gray.png" alt="">
             </button>
         </div>
+        <div class="group-container">
 
-        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-            <!-- This is the tree node template for leaf nodes -->
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-                <!-- use a disabled button to provide padding for tree leaf -->
-                <button mat-icon-button disabled></button>
-                {{node.name}}
-            </mat-tree-node>
-            <!-- This is the tree node template for expandable nodes -->
-            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding matTreeNodeToggle>
-                <button mat-icon-button [attr.aria-label]="'Toggle ' + node.name">
-                    <img class="plus-minus"
-                        [src]="treeControl.isExpanded(node) ? '../../../assets/icons/minus_gray.svg' : '../../../assets/icons/plus_gray.svg'"
-                        alt="">
-                </button>
-                <mat-icon class="type-icon" [attr.aria-label]="node.type + 'icon'">
-                    {{ node.type ==='file' ? 'description' : 'folder' }}
-                </mat-icon>
-                {{node.name}}
-            </mat-tree-node>
-        </mat-tree>
+
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                <!-- This is the tree node template for leaf nodes -->
+                <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="treeNodeClick(node.name)">
+                    <!-- use a disabled button to provide padding for tree leaf -->
+                    <button mat-icon-button disabled></button>
+                    {{node.name}}
+                </mat-tree-node>
+                <!-- This is the tree node template for expandable nodes -->
+                <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding
+                    (click)="treeNodeClick(node.name)">
+                    <button mat-icon-button [attr.aria-label]="'Toggle ' + node.name" matTreeNodeToggle>
+                        <div class="plus-minus">
+                            <span class="material-symbols-outlined">
+                                {{treeControl.isExpanded(node)?'add':'remove'}}
+                            </span>
+                        </div>
+                    </button>
+
+                    <span class="material-symbols-outlined">
+                        {{treeControl.isExpanded(node) ? 'folder_open' : 'folder'}}
+                    </span>
+
+                    {{node.name}}
+                </mat-tree-node>
+            </mat-tree>
+
+            <div class="item">
+                <span class="material-symbols-outlined">
+                    notifications
+                </span>
+                <label>Subscribed parts</label>
+                <div>21</div>
+            </div>
+
+            <div class="item">
+                <span class="material-symbols-outlined">
+                    notifications
+                </span>
+                <label>Low stock</label>
+                <div>21</div>
+            </div>
+
+            <div class="item">
+                <span class="material-symbols-outlined">
+                    schedule
+                </span>
+                <label>Recently updates</label>
+                <div>21</div>
+            </div>
+
+            <div class="item">
+                <span class="material-symbols-outlined">
+                    pending_actions
+                </span>
+                <label>Pending shipments</label>
+                <div>21</div>
+            </div>
+
+        </div>
+
 
 
     </div>

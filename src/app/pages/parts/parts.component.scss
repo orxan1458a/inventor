@@ -1,3 +1,5 @@
+@import "../../../styles/colors.scss";
+
 .parts-container {
     height: calc(100% - 5px);
 
@@ -6,22 +8,78 @@
         padding: 5px 0 0 0;
         background-color: white;
 
-        .btn-container {
+        .top-con {
             display: flex;
-            gap: 5px;
+            justify-content: space-between;
             margin: 5px;
+
+            .btn-container {
+                display: flex;
+                gap: 5px;
+            }
+
+            .search-and-customize {
+                display: flex;
+                gap: 5px;
+
+                .search{
+                    border-radius: 6px;
+                    padding-left: 10px;
+                    width: 170px;
+                    border: 1px solid $gray-color;
+                    outline: none;
+                    
+
+                    &:focus{
+                        box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25)
+                    }
+                }
+
+                .customize-icon {
+                    background-color: $gray-color;
+                    display: flex;
+                    align-items: center;
+                    padding: 10px;
+                    border-radius: 6px;
+                    border: none;
+                    cursor: pointer;
+
+                    .material-symbols-outlined {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        h1{
+            text-align: center;
         }
 
         .table-container {
             width: 100%;
-            height: calc(100% - 35px);
+            height: calc(100vh - 239px);
+            display: grid;
+            grid-template-rows: 1fr auto;
+
+            .dropdown-icon {
+                width: 20px;
+                height: 20px;
+                content: url('../../../assets/icons/drop_down_gray.png');
+            }
+
+            .loading {
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
         }
     }
 
 
-    .mat-elevation-z8{
-        height: 100%; 
+    .mat-elevation-z8 {
+        height: fit-content;
         box-shadow: none;
     }
 }

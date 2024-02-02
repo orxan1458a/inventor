@@ -1,20 +1,28 @@
 <div class="header-container">
     <div class="left-con" cdkMenuBar>
-        <div cdkMenuItem  [cdkMenuTriggerFor]="systemMenu">
+        <div cdkMenuItem [cdkMenuTriggerFor]="systemMenu">
             <label>System</label>
-            <img src="../../../assets/icons/drop_down_gray.png" alt="">
+            <span class="material-symbols-outlined">
+                arrow_drop_down
+            </span>
         </div>
         <div cdkMenuItem [cdkMenuTriggerFor]="editMenu">
             <label>Edit</label>
-            <img src="../../../assets/icons/drop_down_gray.png" alt="">
+            <span class="material-symbols-outlined">
+                arrow_drop_down
+            </span>
         </div>
         <div cdkMenuItem [cdkMenuTriggerFor]="editMenu">
             <label>View</label>
-            <img src="../../../assets/icons/drop_down_gray.png" alt="">
+            <span class="material-symbols-outlined">
+                arrow_drop_down
+            </span>
         </div>
         <div cdkMenuItem [cdkMenuTriggerFor]="editMenu">
             <label>Theme</label>
-            <img src="../../../assets/icons/drop_down_gray.png" alt="">
+            <span class="material-symbols-outlined">
+                arrow_drop_down
+            </span>
         </div>
 
     </div>
@@ -71,4 +79,3 @@
         </button>
     </div>
 </ng-template>
-

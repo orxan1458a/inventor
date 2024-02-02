@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionService } from 'src/app/core/services/action/action.service';
+import { PartDBService } from 'src/app/core/services/database/part.service';
+import { PartSubjectService } from 'src/app/core/services/subject/part-subject.service';
 
 @Component({
   selector: 'app-part-manager',
@@ -9,10 +10,14 @@ import { ActionService } from 'src/app/core/services/action/action.service';
 export class PartManagerComponent implements OnInit {
 
   constructor(
+    private part_subject:PartSubjectService,
+    private part_db_service:PartDBService
   ) { }
 
   ngOnInit(): void {
-   
+   this.part_subject.getPart.subscribe((partId)=>{
+    console.log(partId)
+   })
   }
 
 }

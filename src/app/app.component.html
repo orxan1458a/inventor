@@ -7,23 +7,32 @@
 
     <div class="group-container">
       <mat-tab-group>
-        <mat-tab>
+        <mat-tab *ngFor="let tab of data_service.tabs; let index = index" [label]="tab">
           <ng-template mat-tab-label>
-            <img src="../assets/icons/box.png">
-            <span>Part Manager</span>
+            <span class="material-symbols-outlined">
+              {{tab.img}}
+            </span>
+            <span>{{tab.tabName}}</span>
+            <span class="material-symbols-outlined" *ngIf="index!=0" (click)="removeTab(index)">
+              close
+            </span>
           </ng-template>
           <app-part-manager></app-part-manager>
         </mat-tab>
 
         <mat-tab>
           <ng-template mat-tab-label>
-            <img src="../assets/icons/box.png">
+            <span class="material-symbols-outlined">
+              person
+            </span>
             <span>User</span>
           </ng-template>
         </mat-tab>
 
         <mat-tab> <ng-template mat-tab-label>
-            <img src="../assets/icons/box.png">
+            <span class="material-symbols-outlined">
+              settings
+            </span>
             <span>Settings</span>
           </ng-template>
         </mat-tab>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MasterService } from '../master/master.service';
+import { MasterService } from './master.service';
 import { APIConstant } from '../../constants/APIConstant';
 import { environment } from 'src/environments/environment';
 

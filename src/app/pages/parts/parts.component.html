@@ -1,60 +1,90 @@
 <section class="parts-container">
   <div class="body-container">
+    <div class="top-con">
+      <div class="btn-container">
+        <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Add Part'"></app-button>
+        <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Add Meta-Part'"></app-button>
+        <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Delete Part'"></app-button>
+        <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Dublicate'"></app-button>
+      </div>
 
-    <div class="btn-container">
-      <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Add Part'"></app-button>
-      <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Add Meta-Part'"></app-button>
-      <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Delete Part'"></app-button>
-      <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Dublicate'"></app-button>
+      <div class="search-and-customize">
+        <input type="text" class="search" placeholder="Search">
+        <button class="customize-icon" [matMenuTriggerFor]="beforeMenu">
+          <span class="material-symbols-outlined">
+            view_list
+          </span>
+          <span class="material-symbols-outlined">
+            arrow_drop_down
+          </span>
+        </button>
+      </div>
     </div>
 
+    <h1>Subscribed parts</h1>
+
     <div class="table-container">
-      <div class="example-container mat-elevation-z8">
-        <div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
-          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-          <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-            GitHub's API rate limit has been reached. It will be reset in one minute.
-          </div>
-        </div>
 
-        <div class="example-table-container">
 
-          <table mat-table [dataSource]="data" class="example-table" matSort matSortActive="created" matSortDisableClear
-            matSortDirection="desc">
-            <!-- Number Column -->
-            <ng-container matColumnDef="number">
-              <th mat-header-cell *matHeaderCellDef>#</th>
-              <td mat-cell *matCellDef="let row">{{row.number}}</td>
-            </ng-container>
 
-            <!-- Title Column -->
-            <ng-container matColumnDef="title">
-              <th mat-header-cell *matHeaderCellDef>Title</th>
-              <td mat-cell *matCellDef="let row">{{row.title}}</td>
-            </ng-container>
+      <!-- <div class="loading">
+        <mat-spinner></mat-spinner>
 
-            <!-- State Column -->
-            <ng-container matColumnDef="state">
-              <th mat-header-cell *matHeaderCellDef>State</th>
-              <td mat-cell *matCellDef="let row">{{row.state}}</td>
-            </ng-container>
+      </div> -->
 
-            <!-- Created Column -->
-            <ng-container matColumnDef="created">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                Created
-              </th>
-              <td mat-cell *matCellDef="let row">{{row.created_at | date}}</td>
-            </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-        </div>
+      <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+        class="mat-elevation-z8">
 
-        <mat-paginator [length]="resultsLength" [pageSize]="30"
-          aria-label="Select page of GitHub search results"></mat-paginator>
-      </div>
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+            No.
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+            <span>
+              Weight
+            </span>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+            Symbol
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [length]="0" [pageSize]="30" aria-label="Select page of GitHub search results"></mat-paginator>
     </div>
   </div>
 </section>
+
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item *ngFor="let columnName of matMenuList" (click)="columnCustomize($event,columnName)">
+    <input type="checkbox" [id]="columnName" [checked]="displayedColumns.includes(columnName)">
+    <span>
+      {{columnName}}
+    </span>
+  </button>
+
+</mat-menu>

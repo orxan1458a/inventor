@@ -1,56 +1,62 @@
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { PartSubjectService } from 'src/app/core/services/subject/part-subject.service';
 
 interface FoodNode {
   name: string;
   children?: FoodNode[];
 }
 
-const TREE_DATA: FoodNode[] = [
-  {
-    name: 'Fruit',
-    children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
-  },
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
-      },
-      {
-        name: 'Orange',
-        children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
-      },
-    ],
-  },
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
-      },
-      {
-        name: 'Orange',
-        children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
-      },
-    ],
-  },
-  {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
-      },
-      {
-        name: 'Orange',
-        children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
-      },
-    ],
-  }
+const TREE_DATA: FoodNode[] = [{
+  name:'root',
+  children:[
+    {
+      name: 'Fruit',
+      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+    },
+    {
+      name: 'Vegetables',
+      children: [
+        {
+          name: 'Green',
+          children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
+        },
+        {
+          name: 'Orange',
+          children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
+        },
+      ],
+    },
+    {
+      name: 'Vegetables',
+      children: [
+        {
+          name: 'Green',
+          children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
+        },
+        {
+          name: 'Orange',
+          children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
+        },
+      ],
+    },
+    {
+      name: 'Vegetables',
+      children: [
+        {
+          name: 'Green',
+          children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
+        },
+        {
+          name: 'Orange',
+          children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
+        },
+      ],
+    }
+  ]
+},
+  
 ];
 
 /** Flat node with expandable and level information */
@@ -91,7 +97,9 @@ export class CategoriesComponent implements OnInit {
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor() {this.dataSource.data = TREE_DATA; }
+  constructor(
+    private part_subject :PartSubjectService
+  ) {this.dataSource.data = TREE_DATA; }
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
   
@@ -102,5 +110,12 @@ export class CategoriesComponent implements OnInit {
     console.log(this.isHidden)
     this.isHidden=!this.isHidden;
   }
+
+  treeNodeClick(partId:number){
+    this.part_subject.getPart.next(partId)
+  }
+
+ 
+
 
 }

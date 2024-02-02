@@ -31,13 +31,12 @@
 
 
             &:hover {
-                background-color: $active-color;
+                // background-color: $active-color;
             }
         }
     }
 
     .body {
-        padding: 10px;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -47,6 +46,7 @@
             display: flex;
             gap: 5px;
             align-items: center;
+            padding: 10px;
 
             button {
                 padding: 15px;
@@ -72,27 +72,66 @@
         }
 
         .plus-minus {
+            display: grid;
+            place-items: center;
             background-color: #e0e2e6;
             width: 15px;
             height: 15px;
             padding: 2px;
+
+            .material-symbols-outlined{
+                font-size: 15px;
+            }
         }
 
-    }
+        .group-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
 
-   
+            .item {
+                display: grid;
+                grid-template-columns: auto 1fr auto;
+                gap: 10px;
+                width: calc(100% - 20px);
+                cursor: pointer;
+                padding: 10px;
+                align-items: center;
 
-    // -------------------------------------material design--------------------------------
-    .mat-tree-node {
-        cursor: pointer;
-        min-height: 30px;
-        height: 35px;
-    }
+                &:hover{
+                    color: $header-color;
 
-    .mat-icon-button {
-        height: 35px;
-        width: 35px;
-        line-height: 0;
+                    .material-symbols-outlined{
+                        color: $header-color;
+                    }
+                }
+
+                &:active {
+                    background-color: #68686a;
+                    color: white;
+                }
+
+                label{
+                    cursor: pointer;
+                }
+
+
+                img {
+                    width: 25px;
+                    height: 25px;
+                }
+
+                div {
+                    width: 25px;
+                    height: 25px;
+                    background-color: $header-color;
+                    border-radius: 50%;
+                    display: grid;
+                    place-items: center;
+                    color: white;
+                }
+            }
+        }
 
     }
 

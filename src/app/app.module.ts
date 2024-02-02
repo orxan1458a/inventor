@@ -21,6 +21,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { PicturesComponent } from './pages/pictures/pictures.component';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import { ButtonComponent } from './shared/button/button.component';
+import {MatSortModule} from '@angular/material/sort';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -48,7 +50,9 @@ import { ButtonComponent } from './shared/button/button.component';
     MatTableModule,
     HttpClientModule,
     MatTabsModule,
-    CdkMenuModule
+    CdkMenuModule,
+    MatSortModule,
+    MatMenuModule
   ],
   exports:[RouterModule],
   providers: [],
