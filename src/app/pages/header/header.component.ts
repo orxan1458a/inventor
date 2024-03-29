@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TabService } from 'src/app/core/services/subject/tab.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private tab_service:TabService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  menuItemClick(icon:string,tabName:any){
+    this.tab_service.addTab.next({icon:icon,tabName:tabName})
+  }
 }

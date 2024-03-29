@@ -1,0 +1,56 @@
+@import "../../../styles/colors.scss";
+
+.users-container {
+    height: calc(100% - 10px);
+
+    .container {
+        background-color: #dbdbdb;
+        height: calc(100vh - 75px);
+        padding: 5px;
+        width: calc(100% - 10px);
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        gap: 5px;
+
+        .left-con {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+
+            .top-con {
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                gap: 5px;
+                border-bottom: 1px solid gray;
+
+                .btn-con {
+                    display: flex;
+                    gap: 5px;
+
+                    button {
+                        background-color: $active-color;
+                        padding: 3px;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                    }
+                }
+
+                input[type=text] {
+                    background-color: white;
+                    outline: none;
+                    width: 180px;
+                    padding-left: 10px;
+                    border: 1px solid #dbdbdb;
+                }
+            }
+        }
+
+
+        .right-con {
+            background-color: white;
+
+        }
+    }
+}

@@ -16,14 +16,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
 import {MatTabsModule} from '@angular/material/tabs';
 import { PicturesComponent } from './pages/pictures/pictures.component';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import { ButtonComponent } from './shared/button/button.component';
 import {MatSortModule} from '@angular/material/sort';
 import {MatMenuModule} from '@angular/material/menu';
-
+// import ngx-translate and the http loader
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { UsersComponent } from './pages/users/users.component';
 
 
 @NgModule({
@@ -36,6 +39,7 @@ import {MatMenuModule} from '@angular/material/menu';
     PartManagerComponent,
     PicturesComponent,
     ButtonComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,10 +56,22 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTabsModule,
     CdkMenuModule,
     MatSortModule,
-    MatMenuModule
+    MatMenuModule,
+    TranslateModule.forRoot({
+      defaultLanguage: String(localStorage.getItem('language')),
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   exports:[RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}

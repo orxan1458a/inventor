@@ -15,6 +15,7 @@ export class PartManagerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log("part manager opened")
    this.part_subject.getPart.subscribe((partId)=>{
     console.log(partId)
    })

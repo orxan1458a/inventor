@@ -2,40 +2,40 @@
   <div class="app-header">
     <app-header></app-header>
   </div>
-
   <div class="body-container">
 
     <div class="group-container">
-      <mat-tab-group>
-        <mat-tab *ngFor="let tab of data_service.tabs; let index = index" [label]="tab">
+      <mat-tab-group (selectedIndexChange)="getActiveTab($event)" animationDuration="0"
+        [selectedIndex]="selected_index">
+        <mat-tab *ngFor="let tab of data_service.tabs; let index = index;">
           <ng-template mat-tab-label>
             <span class="material-symbols-outlined">
-              {{tab.img}}
+              {{tab.icon}}
             </span>
-            <span>{{tab.tabName}}</span>
+            <span>{{tab.tabName | translate}}</span>
             <span class="material-symbols-outlined" *ngIf="index!=0" (click)="removeTab(index)">
               close
             </span>
           </ng-template>
-          <app-part-manager></app-part-manager>
+
+          <div *ngIf="data_service.tabs[index].tabName=='part_manager'" [class.hide-tab]="isActiveTag !== 'part_manager'">
+            <app-part-manager></app-part-manager>
+          </div>
+          <div *ngIf="data_service.tabs[index].tabName=='user_preference'" [class.hide-tab]="isActiveTag !== 'user_preference'">
+            <app-part-information></app-part-information>
+          </div>
+
+          <div *ngIf="data_service.tabs[index].tabName=='users'" [class.hide-tab]="isActiveTag !== 'users'">
+            <app-users></app-users>
+          </div>
+          <!-- 
+          <div [style.display]="isActiveTag=='userPreference'?'block':'none'">
+
+            <app-part-information [style.height]="isActiveTag=='userPreference'?'':'0'"></app-part-information>
+          </div> -->
+
         </mat-tab>
 
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <span class="material-symbols-outlined">
-              person
-            </span>
-            <span>User</span>
-          </ng-template>
-        </mat-tab>
-
-        <mat-tab> <ng-template mat-tab-label>
-            <span class="material-symbols-outlined">
-              settings
-            </span>
-            <span>Settings</span>
-          </ng-template>
-        </mat-tab>
       </mat-tab-group>
 
 

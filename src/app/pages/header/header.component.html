@@ -12,13 +12,13 @@
                 arrow_drop_down
             </span>
         </div>
-        <div cdkMenuItem [cdkMenuTriggerFor]="editMenu">
+        <div cdkMenuItem [cdkMenuTriggerFor]="viewMenu">
             <label>View</label>
             <span class="material-symbols-outlined">
                 arrow_drop_down
             </span>
         </div>
-        <div cdkMenuItem [cdkMenuTriggerFor]="editMenu">
+        <div cdkMenuItem [cdkMenuTriggerFor]="themeMenu">
             <label>Theme</label>
             <span class="material-symbols-outlined">
                 arrow_drop_down
@@ -34,22 +34,29 @@
 
 </div>
 
+
 <ng-template #systemMenu>
     <div class="cdk-menu" cdkMenu>
-        <button class="example-menu-item" cdkMenuItem>
-            <img src="../../../assets/icons/box.png" alt="">
+        <button class="example-menu-item" cdkMenuItem (click)="menuItemClick('settings','user_preference')">
+            <span class="material-symbols-outlined">
+                settings
+            </span>
             <span>
                 User Preference
             </span>
         </button>
         <button class="example-menu-item" cdkMenuItem>
-            <img src="../../../assets/icons/box.png" alt="">
+            <span class="material-symbols-outlined">
+                settings
+            </span>
             <span>
                 System Preference
             </span>
         </button>
         <button class="example-menu-item" cdkMenuItem>
-            <img src="https://cdn2.iconfinder.com/data/icons/flat-database/512/disconnect-512.png" alt="">
+            <span class="material-symbols-outlined">
+                signal_disconnected
+            </span>
             <span>
                 Disconnect
             </span>
@@ -57,24 +64,131 @@
     </div>
 </ng-template>
 
+
+
 <ng-template #editMenu>
     <div class="cdk-menu" cdkMenu>
-        <button class="example-menu-item" cdkMenuItem>
-            <img src="../../../assets/icons/box.png" alt="">
+        <button class="example-menu-item" cdkMenuItem (click)="menuItemClick('group','users')">
+            <span class="material-symbols-outlined">
+                group
+            </span>
             <span>
-                User Preference1
+                Users
             </span>
         </button>
         <button class="example-menu-item" cdkMenuItem>
-            <img src="../../../assets/icons/box.png" alt="">
+            <span class="material-symbols-outlined">
+                factory
+            </span>
             <span>
-                System Preference
+                Manufactures
             </span>
         </button>
         <button class="example-menu-item" cdkMenuItem>
-            <img src="https://cdn2.iconfinder.com/data/icons/flat-database/512/disconnect-512.png" alt="">
+            <span class="material-symbols-outlined">
+                inventory_2
+            </span>
             <span>
-                Disconnect
+                Storage Locations
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                local_shipping
+            </span>
+            <span>
+                Distributors
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                inventory_2
+            </span>
+            <span>
+                Storage Locations
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                fingerprint
+            </span>
+            <span>
+                Footprints
+            </span>
+        </button>
+
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                square_foot
+            </span>
+            <span>
+                Part Measurement Units
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                home_iot_device
+            </span>
+            <span>
+                Units
+            </span>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #viewMenu>
+    <div class="cdk-menu" cdkMenu>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                bar_chart
+            </span>
+            <span>
+                Statistics
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                earthquake
+            </span>
+            <span>
+                System Information
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                signal_disconnected
+            </span>
+            <span>
+                System Notices
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                deployed_code_history
+            </span>
+            <span>
+                Stock History
+            </span>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #themeMenu>
+    <div class="cdk-menu" cdkMenu>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                light_mode
+            </span>
+            <span>
+                Light
+            </span>
+        </button>
+        <button class="example-menu-item" cdkMenuItem>
+            <span class="material-symbols-outlined">
+                dark_mode
+            </span>
+            <span>
+                Dark
             </span>
         </button>
     </div>

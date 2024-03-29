@@ -1,33 +1,43 @@
 @import "../styles/colors.scss";
 
 .container {
-
+    
     height: 100%;
     display: flex;
     flex-direction: column;
-
+    
     .app-header {
         width: 100%;
         height: 40px;
     }
-
+    
     .body-container {
         display: flex;
         flex-direction: column;
         gap: 5px;
         height: calc(100% - 40px);
         width: 100%;
-
-
+        
+        
         .group-container {
             display: flex;
             gap: 2px;
             // background-color: $header-color;
-
+            
             height: 100%;
-            align-items: flex-start;    
+            align-items: flex-start;
+            
 
+           .hide-tab {
+                display: none;
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                position: absolute;
+                z-index: 4323;
+            }
         }
     }
-
+    
 }
+

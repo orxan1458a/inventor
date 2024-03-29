@@ -47,7 +47,7 @@ html {
             padding: 5px 5px 0 5px;
 
             .mat-mdc-tab {
-                max-width: 170px;
+                max-width: fit-content;
                 padding: 0;
                 height: 30px;
                 background-color: $second-color;
@@ -68,6 +68,7 @@ html {
                 .mdc-tab__text-label {
                     gap: 5px;
                     color: white;
+                    margin: auto 10px;
                     font: bold 16px/16px helvetica, arial, verdana, sans-serif !important;
                 }
 
@@ -92,8 +93,7 @@ html {
 
     .mat-mdc-tab-body-wrapper {
         height: calc(100% - 35px);
-        background-color: $active-color;
-        padding: 5px 0 0 0;
+        // background-color: $active-color;
 
         .mat-mdc-tab-body-content {
             height: 100%;

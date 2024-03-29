@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class DataService {
-    tabs: any = [{ img: 'package_2', tabName: 'Part Manager' }];
+    tabs: Array<{icon:string,tabName:string}> = [{ icon: 'package_2', tabName: 'part_manager' }];
 }
