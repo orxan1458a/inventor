@@ -19,25 +19,75 @@
             </div>
             <table>
                 <tr>
-                    
+
                     <th>Username</th>
                     <th>Role</th>
                     <th>Status</th>
                 </tr>
-                <tr>
+                <tr (click)="isDisplay=true">
                     <td>orxan</td>
                     <td>admin</td>
                     <td>active</td>
                 </tr>
-                <tr>
+                <tr (click)="isDisplay=true">
                     <td>famil</td>
                     <td>user</td>
-                    <td>active</td>
+                    <td class="img">
+                        <span>active</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/768px-Eo_circle_green_checkmark.svg.png?20200417132424"
+                            alt="">
+                    </td>
                 </tr>
             </table>
         </div>
         <div class="right-con">
-            sdas
+            <mat-tab-group animationDuration="0" *ngIf="isDisplay">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="material-symbols-outlined">
+                            person
+                        </span>
+                        <span>User</span>
+                        <span class="material-symbols-outlined" (click)="isDisplay=!isDisplay">
+                            close
+                        </span>
+                    </ng-template>
+
+
+                    <div class="body-con">
+
+                        <div class="grid-con">
+                            <span>Username</span>
+                            <input type="text">
+                            <span>E-mail</span>
+                            <input type="email">
+                            <span>Password</span>
+                            <input type="text">
+                            <span>Active</span>
+                            <input type="checkbox">
+                        </div>
+                        <div class="btn-con">
+                            <button>
+                                <span class="material-symbols-outlined">
+                                    save
+                                </span>
+                                <span>Save User</span>
+                            </button>
+
+                            <button>
+                                <span class="material-symbols-outlined">
+                                    cancel
+                                </span>
+                                <span>Discard</span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                </mat-tab>
+
+            </mat-tab-group>
+
         </div>
     </div>
 </section>
