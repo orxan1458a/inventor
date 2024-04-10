@@ -1,0 +1,11 @@
+@import "../../../styles/colors.scss";
+
+.mat-mdc-outlined-button:not(:disabled) {
+    background: $active-color !important;
+    padding: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    min-width: 30px;
+    min-height: 30px;
+}

@@ -2,10 +2,10 @@
   <div class="body-container">
     <div class="top-con">
       <div class="btn-container">
-        <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Add Part'"></app-button>
-        <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Add Meta-Part'"></app-button>
-        <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Delete Part'"></app-button>
-        <app-button [imgSrc]="'../../../assets/icons/add_folder.png'" [labelContent]="'Dublicate'"></app-button>
+        <app-button [imgSrc]="'add_ad'" [labelContent]="'Add Part'" (click)="addPart()"></app-button>
+        <app-button [imgSrc]="'add_ad'" [labelContent]="'Add Meta-Part'"></app-button>
+        <app-button [imgSrc]="'delete'" [labelContent]="'Delete Part'"></app-button>
+        <app-button [imgSrc]="'content_copy'" [labelContent]="'Dublicate'"></app-button>
       </div>
 
       <div class="search-and-customize">

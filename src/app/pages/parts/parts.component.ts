@@ -1,8 +1,10 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { HttpClient } from '@angular/common/http';
 import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { UpdatePartComponent } from 'src/app/shared/dialog-window/update-part/update-part.component';
 
 export interface PeriodicElement {
   name: string;
@@ -39,7 +41,8 @@ export class PartsComponent implements AfterViewInit{
 
   constructor(
     private _httpClient: HttpClient,
-    private _liveAnnouncer: LiveAnnouncer
+    private _liveAnnouncer: LiveAnnouncer,
+    public dialog:MatDialog
   ) { }
 
   ngAfterViewInit() {
@@ -72,6 +75,11 @@ export class PartsComponent implements AfterViewInit{
       const index = this.displayedColumns.indexOf(columnName);
       this.displayedColumns.splice(index,1)
     }
+  }
+
+  addPart(){
+    this.dialog.open(UpdatePartComponent);
+
   }
 }
 

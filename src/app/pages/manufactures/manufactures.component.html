@@ -1,0 +1,79 @@
+<section class="manufactures-container">
+    <div class="container">
+        <div class="left-con">
+            <div class="top-con">
+                <div class="btn-con">
+                    <app-mini-button [imgSrc]="'domain_add'"></app-mini-button>
+                    <app-mini-button [imgSrc]="'delete'"></app-mini-button>
+                </div>
+
+                <input type="text">
+            </div>
+
+            <div class="header">
+
+            </div>
+
+            <table>
+                <tr>
+                    <th>Manufactures</th>
+                </tr>
+                <tr (click)="isDisplay=true">
+                    <td>Microchip</td>
+                </tr>
+                <tr (click)="isDisplay=true">
+                    <td>Sandisc</td>
+                </tr>
+            </table>
+        </div>
+        <div class="right-con">
+            <mat-tab-group animationDuration="0" *ngIf="isDisplay">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="material-symbols-outlined">
+                            domain
+                        </span>
+                        <span>Manufacture</span>
+                        <span class="material-symbols-outlined" (click)="isDisplay=!isDisplay">
+                            close
+                        </span>
+                    </ng-template>
+
+
+                    <div class="body-con">
+
+                        <div class="grid-con">
+                            <span>Manufacture Name:</span>
+                            <input type="text">
+                            <span>Address:</span>
+                            <input type="text">
+                            <span>Website:</span>
+                            <input type="url">
+                            <span>E-mail:</span>
+                            <input type="email">
+                            <span>Phone:</span>
+                            <input type="password">
+                            <span>Fax:</span>
+                            <input type="text">
+                            <span>Comment:</span>
+                            <input type="text">
+                            <span>Manufacture Logos:</span>
+                            <div class="img-con">
+                                <img src="https://cdn.pixabay.com/photo/2016/12/27/13/10/logo-1933884_640.png" alt="">
+                                <input type="file">
+                            </div>
+                        </div>
+                        <div class="btn-con">
+                            <app-button [imgSrc]="'save'" [labelContent]="'Save Manufacture'"></app-button>
+
+                            <app-button [imgSrc]="'cancel'" [labelContent]="'Discard'"></app-button>
+                        </div>
+                    </div>
+
+
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+    </div>
+</section>

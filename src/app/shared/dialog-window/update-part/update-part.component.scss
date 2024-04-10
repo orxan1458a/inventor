@@ -1,0 +1,65 @@
+@import "../../../../styles/colors.scss";
+
+.add-part-container {
+    width: 700px;
+    height: auto;
+    background-color: $header-color;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: 10px;
+    gap: 10px;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .material-symbols-outlined {
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .grid-con {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+
+
+            input {
+                height: 25px;
+                font-size: 15px;
+                padding-left: 10px;
+                outline: none;
+            }
+
+            div {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                justify-content: space-between;
+
+                .input-number{
+                    width: 50px;
+                }
+            }
+        }
+
+        .btn-con {
+            display: flex;
+            gap: 10px;
+            background-color: $active-color;
+            border-radius: 2px;
+            padding: 5px;
+        }
+    }
+
+}

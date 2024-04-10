@@ -3,16 +3,8 @@
         <div class="left-con">
             <div class="top-con">
                 <div class="btn-con">
-                    <button>
-                        <span class="material-symbols-outlined">
-                            person_add
-                        </span>
-                    </button>
-                    <button>
-                        <span class="material-symbols-outlined">
-                            person_remove
-                        </span>
-                    </button>
+                    <app-mini-button [imgSrc]="'person_add'"></app-mini-button>
+                    <app-mini-button [imgSrc]="'person_remove'"></app-mini-button>
                 </div>
 
                 <input type="text">
@@ -57,29 +49,19 @@
                     <div class="body-con">
 
                         <div class="grid-con">
-                            <span>Username</span>
+                            <span>Username:</span>
                             <input type="text">
-                            <span>E-mail</span>
+                            <span>E-mail:</span>
                             <input type="email">
-                            <span>Password</span>
-                            <input type="text">
-                            <span>Active</span>
+                            <span>Password:</span>
+                            <input type="password">
+                            <span>Active:</span>
                             <input type="checkbox">
                         </div>
                         <div class="btn-con">
-                            <button>
-                                <span class="material-symbols-outlined">
-                                    save
-                                </span>
-                                <span>Save User</span>
-                            </button>
+                            <app-button [imgSrc]="'save'" [labelContent]="'Save User'"></app-button>
+                            <app-button [imgSrc]="'cancel'" [labelContent]="'Add Stock'"></app-button>
 
-                            <button>
-                                <span class="material-symbols-outlined">
-                                    cancel
-                                </span>
-                                <span>Discard</span>
-                            </button>
                         </div>
                     </div>
 

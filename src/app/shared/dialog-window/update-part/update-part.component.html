@@ -1,0 +1,49 @@
+<section class="add-part-container">
+    <div class="header">
+        <h4>Add Part</h4>
+        <span class="material-symbols-outlined" (click)="close()">
+            cancel
+        </span>
+    </div>
+    <div class="body">
+        <div class="grid-con">
+            <span>Name:</span>
+            <input type="text">
+            <span>Description:</span>
+            <input type="text">
+            <div>
+                <span>Minimum Stock:</span>
+                <input type="number" min="0" max="999" class="input-number">
+            </div>
+            <div>
+                <span>Measurement Unit:</span>
+                <app-select-input [itemList]="foods"></app-select-input>
+            </div>
+            <span>Category:</span>
+            <app-select-input [itemList]="foods"></app-select-input>
+            <span>Storage Location:</span>
+            <app-select-input [itemList]="foods"></app-select-input>
+            <span>Footprint:</span>
+            <app-select-input [itemList]="foods"></app-select-input>
+            <span>Condition:</span>
+            <app-select-input [itemList]="foods"></app-select-input>
+            <span>Distributor:</span>
+            <app-select-input [itemList]="foods"></app-select-input>
+            <span>Manufacture:</span>
+            <app-select-input [itemList]="foods"></app-select-input>
+            <span>Manufacture:</span>
+            <app-select-input [itemList]="foods"></app-select-input>
+            <span>Value:</span>
+            <input type="text">
+            <span>Nominal value:</span>
+            <input type="text">
+            <span>Attachment:</span>
+            <input type="file">
+        </div>
+        <div class="btn-con">
+            <app-button [imgSrc]="'save'" [labelContent]="'Save Manufacture'"></app-button>
+
+            <app-button [imgSrc]="'cancel'" [labelContent]="'Discard'" (click)="close()"></app-button>
+        </div>
+    </div>
+</section>

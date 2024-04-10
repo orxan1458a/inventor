@@ -18,6 +18,12 @@ html {
         margin: 0 !important;
     }
 
+    h4 {
+        font: bold 1.1rem/1.1rem helvetica, arial, verdana, sans-serif !important;
+        color: white;
+        margin: 0 !important;
+    }
+
     h5 {
         font: bold 0.9rem/0.9rem helvetica, arial, verdana, sans-serif !important;
         margin: 0 !important;
@@ -26,6 +32,9 @@ html {
 
 }
 
+button{
+    cursor: pointer;
+}
 * {
     margin: 0;
     padding: 0;
@@ -182,3 +191,23 @@ html {
     color: #5f6368;
     font-size: 20px;
 }
+
+.tree {
+    width: 300px;
+  }
+  
+  .node-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  
+  .node-content-wrapper {
+    flex-grow: 1;
+    position: relative;
+  }
+  
+  .pull-right {
+    position: absolute;
+    right: 10px;
+  }

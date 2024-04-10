@@ -76,7 +76,7 @@
                 Users
             </span>
         </button>
-        <button class="example-menu-item" cdkMenuItem>
+        <button class="example-menu-item" cdkMenuItem (click)="menuItemClick('factory','manufactures')">
             <span class="material-symbols-outlined">
                 factory
             </span>
@@ -100,14 +100,7 @@
                 Distributors
             </span>
         </button>
-        <button class="example-menu-item" cdkMenuItem>
-            <span class="material-symbols-outlined">
-                inventory_2
-            </span>
-            <span>
-                Storage Locations
-            </span>
-        </button>
+    
         <button class="example-menu-item" cdkMenuItem>
             <span class="material-symbols-outlined">
                 fingerprint

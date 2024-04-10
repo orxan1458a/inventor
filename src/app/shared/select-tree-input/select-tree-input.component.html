@@ -1,0 +1,12 @@
+<div class="select-tree-con">
+
+    <form  [formGroup]="form">
+        
+        <ngx-mat-tree-select-input [options]="options" 
+        [canSelectParentNode] = false
+        [placeholder]="'Select Category'" [heading]="'Children of'"
+        [controlName]="'category'"
+        >
+    </ngx-mat-tree-select-input>
+</form>
+</div>
